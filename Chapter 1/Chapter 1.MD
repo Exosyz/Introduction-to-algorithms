@@ -15,7 +15,7 @@ Other than speed in real world, you can have memory complexity used by algorithm
 
 ### Exercise 1.1-3
 #### Select a data structure that you have seen, and discuss its strengths and limitations.
-Linked list is one of data structure that I have seen in the past. The structure allow you to easily access to the next element of an array. 
+Linked list is one of data structure that I have seen in the past. The structure allow you to easily access to the next element of an array.
 But if you want to access to a specific element you will lose a lot of time, because you need to go throw all element before the wanted one.
 
 ### Exercise 1.1-4
@@ -26,9 +26,9 @@ But the restriction of both algorithms are different, in the Shortest-path algor
 In the Traveling-salesperson you need to go through a list of point example ABCD without specified order, so here you will need to check a lot more path in the graph than it was for the Shortest-path algorithms.
 
 ### Exercise 1.1-5
-#### Suggest a real-world problem in which only the best solution will do. Then come up with one which "approximately" the best solution is good enough. 
+#### Suggest a real-world problem in which only the best solution will do. Then come up with one which "approximately" the best solution is good enough.
 Only best solution is valid could be a sorting algorithm, where you need to sort an array.
-And the approximate solution could be to find the path on a map, Maybe multiple solution exist in your graph, all of them can be return not only the shortest.  
+And the approximate solution could be to find the path on a map, Maybe multiple solution exist in your graph, all of them can be return not only the shortest.
 
 ### Exercise 1.1-6
 #### Describe a real-world problem in which sometimes the entire input is available before you need to solve the problem, but other times the input is not entirely available in advance and arrives over time.
@@ -40,7 +40,7 @@ Otherwise, if you need to find the maximum temperature of a day, you will need t
 To render an application, a simple GUI application. Algorithms are used to determine witch component of the application need to be rendered or not.
 
 ### Exercise 1.2-2
-#### Suppose that for inputs of size *n* on a particular computer, insertion sort runs in *8n<sup>2</sup>* steps and merge sort runs in *64 n lg(n)* steps. For which values of *n* does insertion sort beat merge sort ? 
+#### Suppose that for inputs of size *n* on a particular computer, insertion sort runs in *8n<sup>2</sup>* steps and merge sort runs in *64 n lg(n)* steps. For which values of *n* does insertion sort beat merge sort ?
 
 *8n<sup>2</sup>* <= *64 n lg(n)*
 
@@ -55,7 +55,7 @@ To render an application, a simple GUI application. Algorithms are used to deter
 *2<sup>n/8</sup>* <= *n*
 
 With this graph we can see the representation of both side of the inequality. With in red *n* and in blue *2<sup>n/8</sup>*
-![](../resources/C1-2.2.png)
+![](resources/C1-2.2.png)
 
 We can conclude that for *2 < n < 43* insertion is quicker that merged sorting.
 
@@ -67,7 +67,7 @@ Here we are trying to solve *100n<sup>2</sup>* = *2<sup>n</sup>*
 For that we are going to create an equation : *2<sup>n</sup>* - *100n<sup>2</sup>* = 0
 
 This graph represent the equation, and we can conclude, that for n = 15, this *100n<sup>2</sup>* is faster than *2<sup>n</sup>*
-![](../resources/C1-2.3.png)
+![](resources/C1-2.3.png)
 
 ___
 ### Problem 1-1
@@ -75,7 +75,7 @@ ___
 
 |      Item       |                    1 second |                      1 minute |                         1 hour |                           1 day |                           1 month |                             1 year |                            1 century |
 |:---------------:|----------------------------:|------------------------------:|-------------------------------:|--------------------------------:|----------------------------------:|-----------------------------------:|-------------------------------------:|
- |     *lg n*      | *2<sup>10<sup>6<sup></sup>* | *2<sup>6x10<sup>7<sup></sup>* | *2<sup>36x10<sup>8<sup></sup>* | *2<sup>864x10<sup>8<sup></sup>* | *2<sup>25920x10<sup>8<sup></sup>* | *2<sup>315360x10<sup>8<sup></sup>* | *2<sup>31556736x10<sup>8<sup></sup>* |
+|     *lg n*      | *2<sup>10<sup>6<sup></sup>* | *2<sup>6x10<sup>7<sup></sup>* | *2<sup>36x10<sup>8<sup></sup>* | *2<sup>864x10<sup>8<sup></sup>* | *2<sup>25920x10<sup>8<sup></sup>* | *2<sup>315360x10<sup>8<sup></sup>* | *2<sup>31556736x10<sup>8<sup></sup>* |
 |    &radic;n     |           *10<sup>12</sup>* |          *36x10<sup>14</sup>* |         *1296x10<sup>16</sup>* |        *746496x10<sup>16</sup>* |         *6718464x10<sup>18</sup>* |        *994519296x10<sup>18</sup>* |    *995827586973696x10<sup>16</sup>* |
 |       *n*       |            *10<sup>6</sup>* |            *6x10<sup>7</sup>* |            *36x10<sup>8</sup>* |            *864x10<sup>8</sup>* |             *2592x10<sup>9</sup>* |             *31536x10<sup>9</sup>* |            *31556736x10<sup>8</sup>* |
 |    *n lg n*     |                       62746 |                       2801417 |                      133378058 |                      2755147513 |                       71870856404 |                       797633893349 |                       68654697441062 |
