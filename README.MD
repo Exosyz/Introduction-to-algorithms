@@ -9,3 +9,6 @@ ___
 
 # Content
 1. [INSERTION-SORT algorithm](Chapter%202/Chapter%202.MD#insertion-sort-algorithms)
+2. [Linear Search](Chapter%202/Chapter%202.MD#exercise-21-4)
+3. [Add Binary Integer](Chapter%202/Chapter%202.MD#exercise-21-5)
+4. [SELECTION-SORT algorithm](Chapter%202/Chapter%202.MD#exercise-22-2)
