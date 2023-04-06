@@ -36,9 +36,9 @@ SUM-ARRAY(A, n)
 ```
 
 Loop invariant : 
-- <u>Initialization :</u> The sum equals 0.
-- <u>Maintenance :</u> The sum is equal to the previous sum plus current value of the array.
-- <u>Termination :</u> The sum is equal to all the value contain in A.
+- <u>Initialization</u> : The sum equals 0.
+- <u>Maintenance</u> : The sum is equal to the previous sum plus current value of the array.
+- <u>Termination</u> : The sum is equal to all the value contain in A.
 
 ### Exercise 2.1-3
 #### Rewrite the INSERTION-SORT procedure to sort into monotonically decreasing instead of monotonically increasing order.
@@ -130,9 +130,9 @@ See solution in [java](resources/java/src/SelectionSort.java) or [rust](resource
 
 ##### What loop invariant does this algorithm maintain ?
 Loop invariant :
-- <u>Initialization :</u> The array is unsorted.
-- <u>Maintenance :</u> the *i* fist elements of the array is sorted.
-- <u>Termination :</u> The array is sorted.
+- <u>Initialization</u> : The array is unsorted.
+- <u>Maintenance</u> : the *i* fist elements of the array is sorted.
+- <u>Termination</u> : The array is sorted.
 
 ##### Why does it need to run for only the first *n-1* elements, rather than for all n elements ?
 In the inner loop we are looking for the smallest value of *A[i : n]* and swapping the smallest value with value of *A[i]*, so at the end of the main loop the *A[n]* with be the greatest value of *A*, and we don't need to check anything to be sure that the *A[n]* as the greater value of *A* 
@@ -163,3 +163,103 @@ The worst case means that the value isn't in our array, then we will iterate ove
 ### Exercise 2.2-4
 #### How can you modify any sorting algorithm to have a good best-case running time ?
 Using a divide-and-conquer strategy can be a solution to optimise the running time.
+
+___
+## Designing algorithms
+
+
+## MERGE-SORT algorithms
+This algorithm has a complexity of *θ(n lg(n))*
+![](resources/C2-merge_sort_algorithm.png)
+
+#### Divide
+We divide the array *A[p : r]* to 2 adjacent sub-array, we get the midpoint q of *A[p : r]*, and we divide *A[p : r]* into sub-arrays *A[p : q]* and *A[q+1 : r]*
+
+#### Conquer
+By sorting each of the 2 sub-arrays *A[p : q]* and *A[q+1 : r]* recursively using merge sort
+
+#### Combine
+We merged the 2 sub-arrays *A[p : q]* and *A[q+1 : r]* back into *A[p : r]* producing the sorted answer.
+
+To optimise this strategy we can divide recursively until we got sub-array of size 2 (or 1) to get a linear comparison time.
+
+```
+MERGE(A,p,q,r)
+    nl = q - p + 1
+    nr = r - q
+    
+    let L[0 : nl - 1] and R[0 : nr - 1] the new arrays
+    for i = 0 to nl - 1
+        L[i] = A[p + i]
+    for j = 0 to nr - 1
+        L[j] = A[q + j + 1]
+    i = 0
+    j = 0
+    k = p
+    
+    while i < nl and j < nr
+        if L[i] <= R[j]
+            A[k] = L[i]
+            i = i + 1
+        else 
+            A[k] = R[j]
+            j = j + 1
+        k = k + 1
+        
+    while i < nl
+         A[k] = L[i]
+         i = i + 1
+         k = k + 1
+     
+     while j < nr
+         A[k] = R[j]
+         j = j + 1
+         k = k + 1
+```
+
+```
+MERGE-SORT(A,p,r)
+    if p >= r
+        return
+    q = |(p+r)/2|
+    MERGE-SORT(A,p,q)
+    MERGE-SORT(A,q+1,r)
+    MERGE(A,p,q,r)
+```
+
+### Exercise 2.3-1
+#### Illustrate the operation of merge sort on an array initially containing the sequence (3,41,52,26,38,57,9,49)
+![](resources/C2-3.1.png)
+
+### Exercise 2.3-2
+#### The test in line 1 of the MERGE-SORT procedure reads *"if p >= r"* rather than *"if p != r"*. If MERGE-SORT is called with *p > r*, then he sub-array *A[p : r]* is empty. Argue that as long as the initial call of MERGE-SORT (A,1,n) has n >= 1, the test *"if p != r"* suffices to ensure that no call has *p > r*
+Because we have avoided empty array with the constraint *n >= 1* we can assume that all our sub-arrays will have a length greater or equals to 1, and to check if we have an array of one element we can check if *p* and *r* are equals.
+
+### Exercise 2.3-3
+#### State a loop invariant for the while loop of lines *12-18* of the MERGE procedure. Show how to use it, along with the while loops of lines *20-23* and *24-27*, to prove that the MERGE procedures is correct.
+Loop invariant :
+- <u>Initialization</u> : Tow sub-array sorted and a main array unsorted.
+- <u>Maintenance</u> : The *k* fist elements of the main array is sorted, and came from the sub-arrays
+- <u>Termination</u> : The main array is sorted.
+
+### Exercise 2.3-4
+#### Use mathematical induction to show that when *n >= 2* is an exact power of 2, the solution of the recurrence is *T(n) = n lg n*
+![](resources/C2-3.4.png)
+
+*F(k) = T(2<sup>k</sup>)*<br/>
+*F(1) = T(2) = 2 = 2lg2 = 2<sup>1</sup>lg2<sup>1</sup>*<br/>
+*F(k) = 2<sup>k</sup>lg2<sup>k</sup>*<br/>
+*F(k + 1) = T(2<sup>k+1</sup>)*<br/>
+*= 2T(2<sup>k</sup>) + 2<sup>k+1</sup>*<br/>
+*= 2 x 2<sup>k</sup>lg2<sup>k</sup> + 2<sup>k+1</sup>*<br/>
+*= 2<sup>k+1</sup>(lg 2<sup>k</sup>+1)*<br/>
+*= 2<sup>k+1</sup>(lg 2<sup>k</sup> + lg 2)*<br/>
+*= 2<sup>k+1</sup> lg 2<sup>k+1</sup>)*
+
+### Exercise 2.3-5
+#### You can also think of insertion sort as recursive algorithm. In order to sort *A[1 : n]*, recursively sort the sub-array *A[1:n-1]* and then insert *A[n]* into the sub-array *A[1:n-1]*. Write pseudocode for this recursive version of insertion sort. Give a recurrence for its worst-case running time.
+
+````
+REC-INSERTION-SORT(A,n)
+    
+````

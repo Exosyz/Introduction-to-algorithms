@@ -12,3 +12,4 @@ ___
 2. [Linear Search](Chapter%202/Chapter%202.MD#exercise-21-4)
 3. [Add Binary Integer](Chapter%202/Chapter%202.MD#exercise-21-5)
 4. [SELECTION-SORT algorithm](Chapter%202/Chapter%202.MD#exercise-22-2)
+5. [MERGE-SORT algorithm](Chapter%202/Chapter%202.MD#merge-sort-algorithms)
