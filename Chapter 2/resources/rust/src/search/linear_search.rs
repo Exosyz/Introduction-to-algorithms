@@ -1,4 +1,4 @@
-fn find(array: &mut [i32], search_value: i32) -> Option<usize> {
+fn find(array: &[i32], search_value: i32) -> Option<usize> {
     for i in 0..array.len() {
         if array[i] == search_value {
             return Some(i);

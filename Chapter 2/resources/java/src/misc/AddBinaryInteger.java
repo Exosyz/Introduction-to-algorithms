@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package misc;
 
 public class AddBinaryInteger {
     protected static int[] add(int[] a, int[] b) {
@@ -12,13 +12,5 @@ public class AddBinaryInteger {
         c[0] = remainder;
 
         return c;
-    }
-
-    public static void main(String[] args) {
-        // A and B need to have the same length
-        int[] a = new int[]{1,1,1,1};
-        int[] b = new int[]{0,0,0,1};
-
-        System.out.println(Arrays.toString(a) + " + " + Arrays.toString(b) + " = " + Arrays.toString(AddBinaryInteger.add(a, b)));
     }
 }
